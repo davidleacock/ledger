@@ -1,0 +1,14 @@
+type,client,tx,amount
+deposit,1,1,10
+transfer,1,2,5
+deposit,70000,3,5
+deposit,1,4,
+deposit,1,5,-3
+deposit,1,6,1.23456
+Deposit,1,7,5
+deposit,1,8,abc
+
+deposit,1,9,2.5
+dispute,2,1,
+resolve,1,1,
+dispute,1,1,999
