@@ -1,4 +1,4 @@
-//! End-to-end tests: run the compiled binary the same way the spec does
+//! End-to-end tests: run the compiled binary as the CLI is meant to be used
 //! (`ledger <file>`) and compare stdout with expected CSV.
 //!
 //! Each directory under `tests/fixtures/` holds an `input.csv` and the

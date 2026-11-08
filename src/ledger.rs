@@ -250,23 +250,23 @@ mod tests {
     // ---- deposits & withdrawals --------------------------------------------
 
     #[test]
-    fn spec_example() {
+    fn deposits_and_withdrawals_across_clients() {
         let mut ledger = ledger_with(&[
-            deposit(1, 1, "1.0"),
-            deposit(2, 2, "2.0"),
-            deposit(1, 3, "2.0"),
-            withdrawal(1, 4, "1.5"),
+            deposit(4, 21, "12.75"),
+            deposit(8, 22, "3.5"),
+            deposit(4, 23, "0.25"),
+            withdrawal(4, 24, "6"),
         ]);
         assert!(matches!(
-            ledger.apply(withdrawal(2, 5, "3.0")),
+            ledger.apply(withdrawal(8, 25, "9.9")),
             Err(LedgerError::Account {
-                tx: 5,
-                client: 2,
+                tx: 25,
+                client: 8,
                 source: AccountError::InsufficientFunds
             })
         ));
-        assert_account(&ledger, 1, "1.5", "0", "1.5", false);
-        assert_account(&ledger, 2, "2", "0", "2", false);
+        assert_account(&ledger, 4, "7", "0", "7", false);
+        assert_account(&ledger, 8, "3.5", "0", "3.5", false);
     }
 
     #[test]

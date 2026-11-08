@@ -252,12 +252,12 @@ Unit tests live next to the code in `#[cfg(test)]` modules:
 - `account`: each operation, insufficient funds, holds that push available
   negative, chargeback locking, every operation on a locked account, overflow,
   and checks that failed operations change nothing.
-- `csv_io`: the spec's example, whitespace handling, the amount column empty,
+- `csv_io`: multi-client rows with spaces after commas, whitespace handling, the amount column empty,
   missing, or filled in on dispute rows, maximum IDs, empty and header-only
   input, blank lines, each kind of invalid row (with line numbers), reading
   continuing after bad rows, I/O errors ending the stream, and output
   formatting and order.
-- `ledger`: the spec's example, sorted output, a first-event withdrawal, every
+- `ledger`: deposits and withdrawals across clients, sorted output, a first-event withdrawal, every
   combination of duplicate deposit/withdrawal IDs, failed transactions using
   up their IDs, dispute → resolve and dispute → chargeback, available going
   negative, several disputes open at once, unknown, wrong-client, and

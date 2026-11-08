@@ -202,23 +202,23 @@ mod tests {
     // ---- reader: happy paths -------------------------------------------
 
     #[test]
-    fn reads_spec_example() {
+    fn reads_rows_with_spaces_after_commas() {
         let input = "\
 type, client, tx, amount
-deposit, 1, 1, 1.0
-deposit, 2, 2, 2.0
-deposit, 1, 3, 2.0
-withdrawal, 1, 4, 1.5
-withdrawal, 2, 5, 3.0
+deposit, 4, 21, 12.75
+deposit, 8, 22, 3.5
+deposit, 4, 23, 0.25
+withdrawal, 4, 24, 6.0
+withdrawal, 8, 25, 9.9
 ";
         assert_eq!(
             read_ok(input),
             vec![
-                Transaction::deposit(1, 1, amt("1.0")).unwrap(),
-                Transaction::deposit(2, 2, amt("2.0")).unwrap(),
-                Transaction::deposit(1, 3, amt("2.0")).unwrap(),
-                Transaction::withdrawal(1, 4, amt("1.5")).unwrap(),
-                Transaction::withdrawal(2, 5, amt("3.0")).unwrap(),
+                Transaction::deposit(4, 21, amt("12.75")).unwrap(),
+                Transaction::deposit(8, 22, amt("3.5")).unwrap(),
+                Transaction::deposit(4, 23, amt("0.25")).unwrap(),
+                Transaction::withdrawal(4, 24, amt("6.0")).unwrap(),
+                Transaction::withdrawal(8, 25, amt("9.9")).unwrap(),
             ]
         );
     }
